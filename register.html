@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Daftar - COBIT Audit Pro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#1E3A8A",
+              secondary: "#3B82F6",
+              accent: "#1E3ABA",
+              "light-bg": "#EFF6FF",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+
+  <body class="bg-light-bg min-h-screen flex items-center justify-center p-6">
+    <div class="w-full max-w-md">
+      <div class="bg-white p-8 rounded-lg shadow">
+        <h1 class="text-2xl font-bold text-center text-primary">
+          Buat Akun Baru
+        </h1>
+        <p class="text-center text-sm text-gray-500 mb-4">
+          Isi data perusahaan dan akun Anda
+        </p>
+
+        <form
+          id="registerForm"
+          action="../backend/auth/register.php"
+          method="POST"
+          class="space-y-4"
+          novalidate
+        >
+          <!-- CSRF Token -->
+          <input type="hidden" id="csrf_token" name="csrf_token" />
+
+          <label class="block text-sm"
+            >Nama Perusahaan
+            <input
+              name="company-name"
+              required
+              class="w-full border p-2 rounded focus:ring-secondary focus:border-secondary"
+            />
+          </label>
+
+          <label class="block text-sm"
+            >Email Perusahaan
+            <input
+              name="email"
+              type="email"
+              required
+              class="w-full border p-2 rounded focus:ring-secondary focus:border-secondary"
+            />
+          </label>
+
+          <label class="block text-sm"
+            >Nomor HP
+            <input
+              name="phone"
+              type="tel"
+              required
+              pattern="[0-9+\-\s()]{6,30}"
+              class="w-full border p-2 rounded focus:ring-secondary focus:border-secondary"
+            />
+          </label>
+
+          <label class="block text-sm"
+            >Username
+            <input
+              name="username"
+              required
+              class="w-full border p-2 rounded focus:ring-secondary focus:border-secondary"
+            />
+          </label>
+
+          <label class="block text-sm"
+            >Password
+            <input
+              name="password"
+              type="password"
+              minlength="8"
+              required
+              class="w-full border p-2 rounded focus:ring-secondary focus:border-secondary"
+            />
+            <p class="text-xs text-gray-500 mt-1">
+              Minimal 8 karakter, kombinasi huruf & angka disarankan.
+            </p>
+          </label>
+
+          <button
+            type="submit"
+            class="w-full bg-blue-600 text-white py-2 rounded hover:bg-primary transition"
+          >
+            DAFTAR
+          </button>
+        </form>
+
+        <p class="text-center text-sm mt-4">
+          Sudah punya akun?
+          <a href="login.html" class="text-blue-600 hover:underline">Masuk</a>
+        </p>
+      </div>
+    </div>
+
+    <script>
+      // ✅ PERBAIKAN: Path CSRF token yang benar
+      fetch("../backend/auth/csrf_token.php")
+        .then((res) => res.text())
+        .then((token) => {
+          document.getElementById("csrf_token").value = token;
+        })
+        .catch((err) => {
+          console.error("CSRF token error:", err);
+          alert("Gagal memuat token keamanan. Refresh halaman.");
+        });
+
+      document
+        .getElementById("registerForm")
+        .addEventListener("submit", function (e) {
+          const inputs = this.querySelectorAll(
+            'input[type="text"], input[type="email"], input[type="tel"]'
+          );
+          for (const input of inputs) {
+            input.value = input.value.trim().replace(/[<>]/g, "");
+          }
+
+          const pass = this.password.value;
+          if (pass.length < 8) {
+            e.preventDefault();
+            alert("Password minimal 8 karakter!");
+          }
+        });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - COBIT Audit Pro</title>
+
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Load Google Font (Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Konfigurasi Kustom Tailwind (Sama seperti index.html) -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#1E3A8A", // Navy Blue
+              secondary: "#3B82F6", // Bright Blue
+              accent: "#1E3ABA", // Diubah dari Teal
+              "light-bg": "#EFF6FF", // Light Blue Background
+              "dark-text": "#64748B", // Gray
+            },
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+            },
+            borderRadius: {
+              "custom-md": "8px", // Untuk buttons & inputs
+              "custom-lg": "12px", // Untuk cards
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+    </style>
+  </head>
+  <body class="bg-light-bg">
+    <!-- Kontainer Halaman Penuh -->
+    <div
+      class="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8"
+    >
+      <div class="w-full max-w-md space-y-8">
+        <!-- Logo/Judul -->
+        <div>
+          <a
+            href="index.html"
+            class="text-3xl font-bold text-primary text-center block"
+          >
+            COBIT Audit Pro
+          </a>
+          <h2 class="mt-6 text-center text-2xl font-semibold text-gray-800">
+            Masuk ke Akun Anda
+          </h2>
+        </div>
+
+        <!-- Kartu Form -->
+        <div class="bg-white p-8 md:p-10 rounded-custom-lg shadow-xl space-y-6">
+          <form
+            class="space-y-6"
+            action="../backend/auth/login.php"
+            method="POST"
+          >
+            <!-- Input Username (Diubah dari Email) -->
+            <div>
+              <label
+                for="username"
+                class="block text-sm font-medium text-dark-text"
+              >
+                Username
+              </label>
+              <div class="mt-1">
+                <input
+                  id="username"
+                  name="username"
+                  type="text"
+                  autocomplete="username"
+                  required
+                  class="w-full px-4 py-3 border border-gray-300 rounded-custom-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-secondary focus:border-secondary"
+                  placeholder="Masukkan username Anda"
+                />
+              </div>
+            </div>
+
+            <!-- Input Password -->
+            <div>
+              <div class="flex justify-between">
+                <label
+                  for="password"
+                  class="block text-sm font-medium text-dark-text"
+                >
+                  Password
+                </label>
+                <a
+                  href="#"
+                  class="text-sm text-secondary hover:text-blue-700 hover:underline"
+                >
+                  Lupa password?
+                </a>
+              </div>
+              <div class="mt-1">
+                <input
+                  id="password"
+                  name="password"
+                  type="password"
+                  autocomplete="current-password"
+                  required
+                  class="w-full px-4 py-3 border border-gray-300 rounded-custom-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-secondary focus:border-secondary"
+                  placeholder="••••••••"
+                />
+              </div>
+            </div>
+
+            <!-- Tombol Submit (Warna Accent) -->
+            <div>
+              <button
+                type="submit"
+                class="w-full flex justify-center py-3 px-4 border border-transparent rounded-custom-md shadow-sm text-lg font-bold text-white bg-accent hover:bg-primary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary transition duration-300"
+              >
+                MASUK
+              </button>
+            </div>
+          </form>
+
+          <!-- Link ke Halaman Daftar -->
+          <div class="text-center">
+            <p class="text-sm text-dark-text">
+              Belum punya akun?
+              <a
+                href="register.html"
+                class="font-medium text-secondary hover:text-blue-700 hover:underline"
+              >
+                Daftar di sini
+              </a>
+            </p>
+          </div>
+        </div>
+
+        <!-- Link Kembali ke Home -->
+        <div class="text-center">
+          <a
+            href="index.html"
+            class="text-sm text-dark-text hover:text-secondary hover:underline"
+          >
+            &larr; Kembali ke Halaman Utama
+          </a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

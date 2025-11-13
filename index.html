@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>COBIT Audit Pro - Platform Audit Tata Kelola TI</title>
+
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Load Google Font (Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Konfigurasi Kustom Tailwind -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#1E3A8A", // Navy Blue
+              secondary: "#3B82F6", // Bright Blue
+              accent: "#14B8A6", // Teal
+              "light-bg": "#EFF6FF", // Light Blue Background
+              "dark-text": "#64748B", // Gray
+            },
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+            },
+            borderRadius: {
+              "custom-md": "8px", // Untuk buttons
+              "custom-lg": "12px", // Untuk cards
+            },
+          },
+        },
+      };
+    </script>
+
+    <!-- Style Kustom -->
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      .hero-gradient {
+        background-image: linear-gradient(to right, #1e3a8a, #3b82f6);
+      }
+
+      .cta-gradient {
+        background-image: linear-gradient(to right, #1e3a8a, #3b82f6);
+      }
+
+      /* Animasi Scroll-In */
+      .scroll-fade-in {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      }
+
+      .scroll-fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+  <body class="bg-white text-dark-text">
+    <!-- 1. HEADER/NAVIGATION BAR -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+      <nav
+        class="container mx-auto px-6 py-4 flex justify-between items-center"
+      >
+        <!-- Logo -->
+        <a href="#" class="text-2xl font-bold text-primary">
+          COBIT Audit Pro
+        </a>
+
+        <!-- Navigation Menu (Desktop) -->
+        <div class="hidden md:flex space-x-8">
+          <a
+            href="#home"
+            class="text-dark-text hover:text-secondary transition duration-300"
+            >Home</a
+          >
+          <a
+            href="#fitur"
+            class="text-dark-text hover:text-secondary transition duration-300"
+            >Fitur</a
+          >
+          <a
+            href="#cobit5"
+            class="text-dark-text hover:text-secondary transition duration-300"
+            >COBIT 5</a
+          >
+          <a
+            href="#mea-domain"
+            class="text-dark-text hover:text-secondary transition duration-300"
+            >Domain MEA</a
+          >
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-btn" class="md:hidden text-primary">
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16m-7 6h7"
+            ></path>
+          </svg>
+        </button>
+      </nav>
+
+      <!-- Mobile Menu (Hidden) -->
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden bg-white shadow-xl absolute top-full left-0 w-full"
+      >
+        <a href="#home" class="block px-6 py-3 text-dark-text hover:bg-light-bg"
+          >Home</a
+        >
+        <a
+          href="#fitur"
+          class="block px-6 py-3 text-dark-text hover:bg-light-bg"
+          >Fitur</a
+        >
+        <a
+          href="#cobit5"
+          class="block px-6 py-3 text-dark-text hover:bg-light-bg"
+          >Tentang COBIT 5</a
+        >
+        <a
+          href="#mea-domain"
+          class="block px-6 py-3 text-dark-text hover:bg-light-bg"
+          >Domain MEA</a
+        >
+      </div>
+    </header>
+
+    <!-- 2. HERO SECTION -->
+    <section
+      id="home"
+      class="hero-gradient text-white relative overflow-hidden"
+    >
+      <div
+        class="container mx-auto px-6 pt-24 pb-20 md:pt-32 md:pb-28 flex flex-col md:flex-row items-center"
+      >
+        <!-- Content (Left) -->
+        <div class="w-full md:w-1/2 z-10">
+          <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-4">
+            Optimalkan Tata Kelola TI Anda dengan COBIT 5 Domain MEA
+          </h1>
+          <p class="text-lg md:text-xl text-blue-100 mb-8 max-w-xl">
+            Platform assessment maturity level berbasis framework COBIT 5 untuk
+            monitoring, evaluasi, dan penilaian kinerja TI organisasi Anda.
+          </p>
+          <!-- CTA Buttons -->
+          <div
+            class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4"
+          >
+            <a
+              href="login.html"
+              class="text-center bg-accent text-white px-8 py-3 rounded-custom-md font-bold text-lg hover:bg-teal-600 transition duration-300 transform hover:scale-105"
+            >
+              MASUK
+            </a>
+            <a
+              href="register.html"
+              class="text-center bg-white text-primary px-8 py-3 rounded-custom-md font-bold text-lg hover:bg-blue-50 transition duration-300 transform hover:scale-105"
+            >
+              DAFTAR
+            </a>
+          </div>
+          <!-- Trust Badges -->
+          <div class="mt-10 flex items-center space-x-6 text-blue-200">
+            <span class="flex items-center text-sm">
+              <svg
+                class="w-5 h-5 mr-1.5 text-accent"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+              COBIT 5 Compliant
+            </span>
+            <span class="flex items-center text-sm">
+              <svg
+                class="w-5 h-5 mr-1.5 text-accent"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+              Secure Platform
+            </span>
+          </div>
+        </div>
+
+        <!-- Visual Element (Right) -->
+        <div class="w-full md:w-1/2 mt-12 md:mt-0 md:pl-10 z-10">
+          <div
+            class="bg-white p-6 rounded-custom-lg shadow-2xl relative transform md:rotate-3"
+          >
+            <div class="flex justify-between items-center mb-4">
+              <span class="text-primary font-semibold"
+                >Dashboard Maturity Level</span
+              >
+              <span
+                class="text-xs bg-accent text-white px-2 py-0.5 rounded-full"
+                >MEA01</span
+              >
+            </div>
+            <!-- Simple Radar Chart SVG Placeholder -->
+            <div class="relative w-full h-48 md:h-64">
+              <svg
+                class="w-full h-full"
+                viewBox="0 0 100 100"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <polygon
+                  points="50,10 90,35 75,80 25,80 10,35"
+                  fill="#EFF6FF"
+                />
+                <polygon
+                  points="50,10 90,35 75,80 25,80 10,35"
+                  stroke="#3B82F6"
+                  stroke-width="0.5"
+                  fill="none"
+                />
+                <polygon
+                  points="50,30 70,45 65,70 35,70 30,45"
+                  fill="#3B82F6"
+                  fill-opacity="0.6"
+                />
+                <line
+                  x1="50"
+                  y1="10"
+                  x2="50"
+                  y2="50"
+                  stroke="#3B82F6"
+                  stroke-width="0.5"
+                />
+                <line
+                  x1="90"
+                  y1="35"
+                  x2="50"
+                  y2="50"
+                  stroke="#3B82F6"
+                  stroke-width="0.5"
+                />
+                <line
+                  x1="75"
+                  y1="80"
+                  x2="50"
+                  y2="50"
+                  stroke="#3B82F6"
+                  stroke-width="0.5"
+                />
+                <line
+                  x1="25"
+                  y1="80"
+                  x2="50"
+                  y2="50"
+                  stroke="#3B82F6"
+                  stroke-width="0.5"
+                />
+                <line
+                  x1="10"
+                  y1="35"
+                  x2="50"
+                  y2="50"
+                  stroke="#3B82F6"
+                  stroke-width="0.5"
+                />
+              </svg>
+            </div>
+            <div class="h-4 bg-gray-200 rounded w-3/4 mt-4"></div>
+            <div class="h-4 bg-gray-200 rounded w-1/2 mt-2"></div>
+          </div>
+        </div>
+
+        <!-- Abstract background shapes -->
+        <div
+          class="absolute top-0 left-0 w-64 h-64 bg-white opacity-10 rounded-full -translate-x-1/3 -translate-y-1/3"
+        ></div>
+        <div
+          class="absolute bottom-0 right-0 w-96 h-96 bg-accent opacity-10 rounded-full translate-x-1/4 translate-y-1/4"
+        ></div>
+      </div>
+    </section>
+
+    <!-- 3. FEATURES SECTION -->
+    <section id="fitur" class="py-20 md:py-28 bg-white">
+      <div class="container mx-auto px-6 text-center">
+        <!-- Title -->
+        <h2
+          class="text-3xl md:text-4xl font-bold text-primary mb-16 scroll-fade-in"
+        >
+          Fitur Unggulan Platform
+        </h2>
+
+        <!-- Layout: 3-column grid -->
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- Card 1: Assessment Tool Terstruktur -->
+          <div
+            class="bg-white p-8 rounded-custom-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 transform hover:-translate-y-2 scroll-fade-in"
+          >
+            <!-- Icon -->
+            <div class="mb-6">
+              <svg
+                class="w-16 h-16 text-accent mx-auto"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-primary mb-4">
+              Assessment Tool Terstruktur
+            </h3>
+            <p class="text-dark-text leading-relaxed">
+              Kuesioner assessment berbasis COBIT 5 domain MEA.
+            </p>
+          </div>
+
+          <!-- Card 2: Report Generator Otomatis -->
+          <div
+            class="bg-white p-8 rounded-custom-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 transform hover:-translate-y-2 scroll-fade-in"
+            style="transition-delay: 150ms"
+          >
+            <!-- Icon -->
+            <div class="mb-6">
+              <svg
+                class="w-16 h-16 text-accent mx-auto"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m0 0v-6a2 2 0 00-2-2h-2a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-primary mb-4">
+              Report Generator Otomatis
+            </h3>
+            <p class="text-dark-text leading-relaxed">
+              Dapatkan laporan maturity level lengkap dengan visualisasi chart,
+              bisa Export ke PDF.
+            </p>
+          </div>
+
+          <!-- Card 3: Knowledge Base Lengkap -->
+          <div
+            class="bg-white p-8 rounded-custom-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 transform hover:-translate-y-2 scroll-fade-in"
+            style="transition-delay: 300ms"
+          >
+            <!-- Icon -->
+            <div class="mb-6">
+              <svg
+                class="w-16 h-16 text-accent mx-auto"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  d="M12 6.253v11.494m0 0L9.5 14.125m2.5 3.622L14.5 14.125M12 6.253v11.494m0 0L9.5 14.125m2.5 3.622L14.5 14.125M12 6.253v11.494m0 0L9.5 14.125m2.5 3.622L14.5 14.125M12 6.253v11.494m0 0L9.5 14.125m2.5 3.622L14.5 14.125M12 6.253l-2.5 3.622m2.5-3.622l2.5 3.622M12 6.253V3M4 6h16M4 6v15a1 1 0 001 1h14a1 1 0 001-1V6M4 6h16m0 0V3m0 3H4M4 3v3h16V3"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-primary mb-4">
+              Interactive Consultation
+            </h3>
+            <p class="text-dark-text leading-relaxed">
+              Berinteraksi langsung dengan admin untuk mendapatkan bimbingan dan
+              klarifikasi hasil asesmen tata kelola TI Anda berdasarkan
+              framework COBIT 5.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. HOW IT WORKS SECTION -->
+    <section id="cara-kerja" class="py-20 md:py-28 bg-light-bg">
+      <div class="container mx-auto px-6">
+        <!-- Title -->
+        <h2
+          class="text-3xl md:text-4xl font-bold text-primary text-center mb-20 scroll-fade-in"
+        >
+          4 Langkah Mudah Menuju IT Governance yang Lebih Baik
+        </h2>
+
+        <!-- Steps Layout -->
+        <div class="relative">
+          <!-- Dotted line connector (Desktop only) -->
+          <div
+            class="hidden md:block absolute top-12 left-0 w-full h-1 border-t-2 border-dashed border-secondary opacity-50"
+          ></div>
+
+          <div class="relative grid md:grid-cols-4 gap-12 md:gap-8">
+            <!-- Step 1 -->
+            <div class="text-center scroll-fade-in">
+              <div
+                class="relative z-10 w-24 h-24 bg-white rounded-full shadow-lg flex items-center justify-center mx-auto mb-4 border-4 border-light-bg"
+              >
+                <span class="text-4xl font-bold text-secondary">1</span>
+              </div>
+              <h3 class="text-xl font-bold text-primary mb-2">
+                Daftar & Login
+              </h3>
+              <p class="text-dark-text">
+                Buat akun dalam 2 menit. Verifikasi email dan mulai assessment.
+              </p>
+            </div>
+
+            <!-- Step 2 -->
+            <div
+              class="text-center scroll-fade-in"
+              style="transition-delay: 150ms"
+            >
+              <div
+                class="relative z-10 w-24 h-24 bg-white rounded-full shadow-lg flex items-center justify-center mx-auto mb-4 border-4 border-light-bg"
+              >
+                <span class="text-4xl font-bold text-secondary">2</span>
+              </div>
+              <h3 class="text-xl font-bold text-primary mb-2">
+                Isi Assessment
+              </h3>
+              <p class="text-dark-text">
+                Jawab kuesioner maturity level untuk 5 proses MEA dengan panduan
+                lengkap.
+              </p>
+            </div>
+
+            <!-- Step 3 -->
+            <div
+              class="text-center scroll-fade-in"
+              style="transition-delay: 300ms"
+            >
+              <div
+                class="relative z-10 w-24 h-24 bg-white rounded-full shadow-lg flex items-center justify-center mx-auto mb-4 border-4 border-light-bg"
+              >
+                <span class="text-4xl font-bold text-secondary">3</span>
+              </div>
+              <h3 class="text-xl font-bold text-primary mb-2">Lihat Report</h3>
+              <p class="text-dark-text">
+                Dapatkan hasil maturity level otomatis dengan visualisasi dan
+                analisis gap.
+              </p>
+            </div>
+
+            <!-- Step 4 -->
+            <div
+              class="text-center scroll-fade-in"
+              style="transition-delay: 450ms"
+            >
+              <div
+                class="relative z-10 w-24 h-24 bg-white rounded-full shadow-lg flex items-center justify-center mx-auto mb-4 border-4 border-light-bg"
+              >
+                <span class="text-4xl font-bold text-secondary">4</span>
+              </div>
+              <h3 class="text-xl font-bold text-primary mb-2">
+                Implementasi Action
+              </h3>
+              <p class="text-dark-text">
+                Ikuti rekomendasi untuk meningkatkan maturity level IT
+                governance organisasi.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. BENEFITS/VALUE PROPOSITION SECTION -->
+    <section id="benefits" class="py-20 md:py-28 bg-white overflow-hidden">
+      <div
+        class="container mx-auto px-6 grid md:grid-cols-2 gap-12 md:gap-20 items-center"
+      >
+        <!-- Text (Left) -->
+        <div class="scroll-fade-in">
+          <h2 class="text-3xl md:text-4xl font-bold text-primary mb-8">
+            Tingkatkan Maturity Level TI Organisasi Anda
+          </h2>
+          <p class="text-lg text-dark-text mb-8">
+            Platform kami memberikan pandangan yang jelas dan objektif tentang
+            kinerja tata kelola TI Anda, memungkinkan Anda untuk membuat
+            keputusan yang lebih baik.
+          </p>
+          <!-- Benefits List -->
+          <ul class="space-y-4">
+            <li class="flex items-start">
+              <svg
+                class="w-6 h-6 text-accent flex-shrink-0 mr-3 mt-1"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+              <span class="text-dark-text text-lg"
+                >Pengukuran objektif maturity level IT governance</span
+              >
+            </li>
+            <li class="flex items-start">
+              <svg
+                class="w-6 h-6 text-accent flex-shrink-0 mr-3 mt-1"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+              <span class="text-dark-text text-lg"
+                >Identifikasi gap antara kondisi saat ini dan target</span
+              >
+            </li>
+            <li class="flex items-start">
+              <svg
+                class="w-6 h-6 text-accent flex-shrink-0 mr-3 mt-1"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+              <span class="text-dark-text text-lg"
+                >Rekomendasi actionable untuk improvement</span
+              >
+            </li>
+            <li class="flex items-start">
+              <svg
+                class="w-6 h-6 text-accent flex-shrink-0 mr-3 mt-1"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+              <span class="text-dark-text text-lg"
+                >Dashboard real-time untuk monitoring progress</span
+              >
+            </li>
+          </ul>
+        </div>
+
+        <!-- Visual (Right) -->
+        <div class="scroll-fade-in" style="transition-delay: 150ms">
+          <div class="bg-light-bg p-8 rounded-custom-lg shadow-xl">
+            <span class="text-primary font-semibold mb-4 block"
+              >Analisis Gap Kinerja</span
+            >
+            <!-- Simple Bar Chart Placeholder -->
+            <div class="space-y-4">
+              <div>
+                <div class="flex justify-between text-sm text-dark-text mb-1">
+                  <span>MEA01 (Target)</span>
+                  <span>Level 4</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                  <div
+                    class="bg-primary h-2.5 rounded-full"
+                    style="width: 80%"
+                  ></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between text-sm text-dark-text mb-1">
+                  <span>MEA01 (Saat Ini)</span>
+                  <span>Level 2</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                  <div
+                    class="bg-secondary h-2.5 rounded-full"
+                    style="width: 40%"
+                  ></div>
+                </div>
+              </div>
+              <div class="pt-2">
+                <div class="flex justify-between text-sm text-dark-text mb-1">
+                  <span>MEA02 (Target)</span>
+                  <span>Level 3</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                  <div
+                    class="bg-primary h-2.5 rounded-full"
+                    style="width: 60%"
+                  ></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between text-sm text-dark-text mb-1">
+                  <span>MEA02 (Saat Ini)</span>
+                  <span>Level 3</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                  <div
+                    class="bg-accent h-2.5 rounded-full"
+                    style="width: 60%"
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. COBIT SECTION -->
+    <section id="cobit5" class="py-20 md:py-28 bg-light-bg">
+      <div class="container mx-auto px-6">
+        <!-- Title -->
+        <h2
+          class="text-3xl md:text-4xl font-bold text-primary text-center mb-16"
+        >
+          COBIT 5
+        </h2>
+
+        <!-- Layout: vertical (stacked) -->
+        <div class="flex flex-col items-center space-y-8">
+          <!-- Card 1: Definisi -->
+          <div
+            class="bg-white p-8 rounded-custom-lg shadow-lg w-full md:w-3/4 text-center"
+          >
+            <p class="underline underline-offset-4 text-primary font-bold mb-4">
+              DEFINISI
+            </p>
+            <p class="text-dark-text text-lg italic">
+              COBIT 5 (Control Objectives for Information and Related
+              Technologies) adalah kerangka kerja internasional untuk tata
+              kelola dan manajemen TI. COBIT 5 membantu organisasi memastikan
+              bahwa strategi TI selaras dengan tujuan bisnis, serta
+              mengoptimalkan sumber daya dan risiko.
+            </p>
+          </div>
+
+          <!-- Card 2: Prinsip -->
+          <div
+            class="bg-white p-8 rounded-custom-lg shadow-lg w-full md:w-3/4 text-center"
+          >
+            <p class="underline underline-offset-4 text-primary font-bold mb-4">
+              PRINSIP
+            </p>
+            <ol
+              class="list-decimal list-inside text-left inline-block text-dark-text text-lg italic leading-relaxed"
+            >
+              <li>Memenuhi kebutuhan pemangku kepentingan</li>
+              <li>Mencakup seluruh organisasi secara menyeluruh</li>
+              <li>Menerapkan kerangka terpadu tunggal</li>
+              <li>Mendorong pendekatan holistik</li>
+              <li>Memisahkan tata kelola dan manajemen</li>
+            </ol>
+          </div>
+
+          <!-- Card 3: Proses -->
+          <div
+            class="bg-white p-8 rounded-custom-lg shadow-lg w-full md:w-3/4 text-center"
+          >
+            <p class="underline underline-offset-4 text-primary font-bold mb-4">
+              PROSES
+            </p>
+            <ul
+              class="list-disc list-inside text-left inline-block text-dark-text text-lg  leading-relaxed"
+            >
+              <p><strong>EDM (Evaluate, Direct, Monitor)</strong></p>
+                <p>– memastikan tata kelola TI selaras dengan tujuan bisnis.</p>
+              <p><strong>APO (Align, Plan, Organize)</strong></p>
+                <p>– mencakup perencanaan dan strategi TI.</p>
+              <p><strong>BAI (Build, Acquire, Implement)</strong></p>
+                <p>– berfokus pada pengadaan dan implementasi solusi TI.</p>
+              <p><strong>DSS (Deliver, Service, Support)</strong></p>
+                <p>– memastikan layanan TI berjalan efektif dan efisien.</p>
+              <p><strong>MEA (Monitor, Evaluate, Assess)</strong></p>
+                <p>- memantau kinerja dan kepatuhan terhadap kebijakan organisasi.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="mea-domain" class="cta-gradient text-white py-20 md:py-28">
+      <div class="container mx-auto px-6 text-center max-w-4xl scroll-fade-in">
+        <h2 class="text-3xl md:text-4xl font-extrabold mb-4">
+          Domain MEA: Kunci Pengawasan Tata Kelola TI
+        </h2>
+        <p class="text-xl md:text-2xl text-blue-100 mb-12">
+          Monitor, Evaluate, and Assess (MEA) memastikan bahwa TI beroperasi sesuai harapan dan kebutuhan kepatuhan terpenuhi.
+        </p>
+
+        <div class="grid md:grid-cols-3 gap-8 text-left">
+          
+          <div class="bg-white p-6 rounded-xl shadow-2xl text-primary transform hover:scale-[1.03] transition duration-300">
+            <h3 class="text-2xl font-bold mb-3 flex items-center">
+              <span class="text-blue-600 mr-2"></span> MEA01: Kinerja & Kepatuhan
+            </h3>
+            <p class="text-gray-600 font-semibold mb-2">
+              Monitor, Evaluate, and Assess Performance and Conformance
+            </p>
+            <p class="text-sm text-gray-700">
+            Memantau kinerja proses dan layanan TI (dengan metrik) serta memastikan tingkat kepatuhan yang konsisten terhadap standar dan tujuan bisnis yang telah ditetapkan.
+            </p>
+          </div>
+
+          <div class="bg-white p-6 rounded-xl shadow-2xl text-primary transform hover:scale-[1.03] transition duration-300">
+            <h3 class="text-2xl font-bold mb-3 flex items-center">
+              <span class="text-green-600 mr-2"></span> MEA02: Sistem Kendali Internal
+            </h3>
+            <p class="text-gray-600 font-semibold mb-2">
+              Monitor, Evaluate, and Assess the Internal Control System
+            </p>
+            <p class="text-sm text-gray-700">
+            Memastikan bahwa semua kontrol internal (pengendalian) TI berfungsi dengan baik. Tujuannya adalah untuk memberikan jaminan bahwa risiko telah dikelola secara efektif.
+            </p>
+          </div>
+
+          <div class="bg-white p-6 rounded-xl shadow-2xl text-primary transform hover:scale-[1.03] transition duration-300">
+            <h3 class="text-2xl font-bold mb-3 flex items-center">
+              <span class="text-red-600 mr-2"></span> MEA03: Kepatuhan Eksternal
+            </h3>
+            <p class="text-gray-600 font-semibold mb-2">
+              Monitor, Evaluate, and Assess Compliance with External Requirements
+            </p>
+            <p class="text-sm text-gray-700">
+            Memastikan kepatuhan TI terhadap undang-undang, peraturan pemerintah, dan kewajiban kontraktual eksternal yang dapat dikenakan sanksi hukum atau denda.
+            </p>
+          </div>
+
+        </div>
+
+        <p class="text-base text-blue-200 mt-12">
+          Domain MEA adalah pondasi bagi perbaikan berkelanjutan dalam tata kelola dan manajemen TI organisasi Anda.
+        </p>
+      </div>
+    </section>
+
+    <!-- 8. FOOTER -->
+    <footer class="bg-primary text-blue-100 pt-20 pb-10">
+    <div class="container mx-auto px-6">
+        <!-- 4-column grid (kosong untuk menjaga struktur responsif jika ingin ditambah di masa depan) -->
+        <div class="grid md:grid-cols-4 gap-10"></div>
+
+        <!-- Bottom Bar -->
+        <div class="border-t border-blue-800 mt-12 pt-8 text-center">
+        <p class="text-sm text-blue-300 mb-2">
+            © 2025 COBIT Audit Platform — Created by <span class="font-semibold text-white">Kelompok MEA</span>
+        </p>
+        <p class="text-sm text-blue-300">
+            Anggota: Marliana • Fatimah • Mario Peronika
+        </p>
+        </div>
+    </div>
+    </footer>
+
+
+    <script>
+      // JavaScript untuk Mobile Menu Toggle
+      const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      mobileMenuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      // JavaScript untuk Animasi Scroll-In
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              // Opsional: berhenti mengamati setelah terlihat
+              // observer.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.1, // Muncul saat 10% elemen terlihat
+        }
+      );
+
+      // Amati semua elemen dengan kelas .scroll-fade-in
+      document.querySelectorAll(".scroll-fade-in").forEach((el) => {
+        observer.observe(el);
+      });
+
+      // Tutup menu mobile jika link di-klik
+      mobileMenu.addEventListener("click", (e) => {
+        if (e.target.tagName === "A") {
+          mobileMenu.classList.add("hidden");
+        }
+      });
+    </script>
+  </body>
+</html>
